@@ -2,6 +2,8 @@ package minhna.photostory_pinterest.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +17,8 @@ import com.pinterest.android.pdk.PDKResponse;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -34,6 +38,7 @@ public class LoginActivity extends AppCompatActivity {
     ProgressBar progressBar;
     @BindView(R.id.content)
     View content;
+    TimerTask reDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +55,22 @@ public class LoginActivity extends AppCompatActivity {
         if (resultCode==AppCompatActivity.RESULT_OK && data!=null) {
             content.setVisibility(View.GONE);
             progressBar.setVisibility(View.VISIBLE);
+            setTimerRedisplay();
         }
+    }
+
+    private void setTimerRedisplay() {
+        reDisplay = new TimerTask() {
+            @Override
+            public void run() {
+                Handler handler = new Handler(Looper.getMainLooper());
+                handler.post(() -> {
+                    content.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
+                });
+            }
+        };
+        new Timer().schedule(reDisplay,5000);
     }
 
     private void authenticatePDK() {
@@ -60,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
         PDKClient.getInstance().login(this, scopes, new PDKCallback() {
             @Override
             public void onSuccess(PDKResponse response) {
+                reDisplay.cancel();
                 String strResp = response.getData().toString();
                 Log.d(AC.TAG_NAME, strResp);
                 progressBar.setVisibility(View.GONE);
@@ -70,6 +91,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onFailure(PDKException exception) {
                 Log.e(AC.TAG_NAME, exception.getDetailMessage());
+                content.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.GONE);
             }
         });
     }
