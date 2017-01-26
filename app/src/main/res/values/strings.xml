@@ -9,4 +9,5 @@
     <string name="Start_other">No, just view my own pins</string>
     <string name="intro">I hope you like my work :)</string>
     <string name="img_key">img</string>
+    <string name="guide2">Your account has no pin. Please quit the app and select the remain option to fetch data.</string>
 </resources>

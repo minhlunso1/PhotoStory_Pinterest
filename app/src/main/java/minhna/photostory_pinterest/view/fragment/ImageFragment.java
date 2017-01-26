@@ -18,6 +18,8 @@ import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 
+import java.lang.reflect.Field;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import minhna.photostory_pinterest.R;
@@ -82,6 +84,20 @@ public class ImageFragment extends Fragment {
                     .makeSceneTransitionAnimation(getActivity(), imgView, getActivity().getString(R.string.img_key));
             startActivity(intent, options.toBundle());
         });
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        try {
+            Field childFragmentManager = Fragment.class.getDeclaredField("mChildFragmentManager");
+            childFragmentManager.setAccessible(true);
+            childFragmentManager.set(this, null);
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e1) {
+            throw new RuntimeException(e1);
+        }
     }
 
 }

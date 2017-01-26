@@ -16,7 +16,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.pinterest.android.pdk.PDKBoard;
 import com.pinterest.android.pdk.PDKCallback;
 import com.pinterest.android.pdk.PDKClient;
 import com.pinterest.android.pdk.PDKException;
@@ -49,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.tv_footer) TextView tvAuthor;
     @BindView(R.id.heart_inside) View heartInside;
     @BindView(R.id.up_area) View upArea;
+    @BindView(R.id.view_part1) View viewPart1;
+    @BindView(R.id.view_part2) View viewPart2;
     int index;
     int[] bgColors = {R.color.black_overlay, R.color.grey_overlay, R.color.dark_overlay, R.color.white_overlay};
     public int colorIndex=3;
@@ -98,22 +99,27 @@ public class MainActivity extends AppCompatActivity {
                 if (pins!=null) {
                     Log.d(AC.TAG_NAME, "pin count:" + pins.size());
                     displayRightFlow();
-                }
+                } else
+                    displayPendingFlow();
             }
             @Override
             public void onFailure(PDKException exception) {
                 exception.printStackTrace();
                 Log.d(AC.TAG_NAME, "cannot get pins");
+                displayPendingFlow();
             }
         });
     }
 
     private void displayRightFlow() {
+        viewPart1.setVisibility(View.VISIBLE);
         setupPager();
         tvContent.setText(pins.get(0).note);
     }
 
     private void displayPendingFlow() {
+        viewPart1.setVisibility(View.GONE);
+        viewPart2.setVisibility(View.VISIBLE);
     }
 
     public static void go(Context context, BasicProfile profile) {
