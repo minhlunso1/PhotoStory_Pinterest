@@ -5,7 +5,7 @@ Submitted by: **Minh Nguyen**
 
 Time spent: 27 hours spent in total
 
-##Requirement: 
+##Before Testing 
 Please install Pinterest app on your device. Currently, the OAuthentication through the website of Pinterest is having bugs.
 
 ## User Stories
