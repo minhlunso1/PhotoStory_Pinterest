@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PhotoStory_Pinterest</string>
+    <string name="title">Let me join Cookpad *teehee*</string>
+    <string name="content">Content</string>
+    <string name="author_name">Minh Nguyen</string>
+    <string name="Start">Begin</string>
+    <string name="guide1">To make it quick and convinient, let\'s access Minh\'s gallery. The login authentication is required to fetch API.</string>
+    <string name="comment">comment</string>
+    <string name="Start_other">No, just view my own pins</string>
+    <string name="intro">I hope you like my work :)</string>
+</resources>
