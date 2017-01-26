@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -78,5 +79,15 @@ public class ShowImageActivity extends AppCompatActivity {
                 .dontTransform()
                 .override(AC.PREFERRED_IMAGE_WIDTH_FULL, AC.PREFERRED_IMAGE_HEIGHT_FULL)
                 .into(imageView);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+            default:
+                return true;
+        }
     }
 }
