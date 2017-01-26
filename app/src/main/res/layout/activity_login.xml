@@ -4,6 +4,7 @@
     android:background="@drawable/bg_1">
 
     <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -44,5 +45,11 @@
             android:text="@string/Start_other"
             android:onClick="beginWithUserBoard"/>
     </LinearLayout>
+    <ProgressBar
+        android:id="@+id/pb_img"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
 
 </RelativeLayout>

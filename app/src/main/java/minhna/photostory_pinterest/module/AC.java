@@ -1,5 +1,7 @@
 package minhna.photostory_pinterest.module;
 
+import minhna.photostory_pinterest.util.PhotoStoryUtil;
+
 /**
  * Created by Administrator on 25-Jan-17.
  */
@@ -13,5 +15,8 @@ public class AC {
     public final static String PATH_MODE = "pathMode";
 //    public final static String KEK_PDK_RESULT = "PDKCLIENT_EXTRA_RESULT";
     public final static String KEK_BASIC_PROFILE = "basicProfile";
+
+    public static int PREFERRED_IMAGE_WIDTH_FULL = PhotoStoryUtil.dpToPx(320);
+    public static int PREFERRED_IMAGE_HEIGHT_FULL = PhotoStoryUtil.dpToPx(320);
 
 }

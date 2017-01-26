@@ -1,8 +1,10 @@
 package minhna.photostory_pinterest.view.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
@@ -19,6 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import minhna.photostory_pinterest.R;
 import minhna.photostory_pinterest.module.AC;
+import minhna.photostory_pinterest.view.activity.ShowImageActivity;
 
 /**
  * Created by Administrator on 26-Jan-17.
@@ -70,6 +74,14 @@ public class ImageFragment extends Fragment {
                 .error(R.drawable.bg_2)
                 .centerCrop()
                 .into(imgView);
+
+        imgView.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), ShowImageActivity.class);
+            intent.putExtra(AC.IMAGE_URL, imageUrl);
+            ActivityOptionsCompat options = ActivityOptionsCompat
+                    .makeSceneTransitionAnimation(getActivity(), imgView, getActivity().getString(R.string.img_key));
+            startActivity(intent, options.toBundle());
+        });
     }
 
 }

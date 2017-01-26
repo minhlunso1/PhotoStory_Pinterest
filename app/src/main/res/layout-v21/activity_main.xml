@@ -39,6 +39,7 @@
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
             android:layout_centerHorizontal="true"
+            android:elevation="8dp"
             app:cardUseCompatPadding="true">
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -122,9 +123,11 @@
         <minhna.photostory_pinterest.view.custom.PagerContainer
             android:id="@+id/pager_container"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:elevation="10dp">
             <android.support.v4.view.ViewPager
                 android:id="@+id/vp"
+                android:transitionName="img"
                 android:layout_width="240dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center_horizontal"/>

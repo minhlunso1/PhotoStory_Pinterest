@@ -256,4 +256,9 @@ public class MainActivity extends AppCompatActivity {
             anim.start();
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        supportFinishAfterTransition();
+    }
 }
