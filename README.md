@@ -5,8 +5,8 @@ Submitted by: **Minh Nguyen**
 
 Time spent: 27 hours spent in total
 
-##Requirement: 
-Please install Pinterest app on your device. Currently, the OAuthentication through the website of Pinterest is having bugs.
+##Before Testing 
+Please install Pinterest app on your device. Currently, the OAuthentication through the website of Pinterest is having bugs. Finally, let's test on real devices to experience the smooth walkthrough.
 
 ## User Stories
 The part of the photo viewer application. Integrating Pinterest to query data from server.
