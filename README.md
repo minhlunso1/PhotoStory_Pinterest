@@ -24,6 +24,8 @@ The part of the photo viewer application. Integrating Pinterest to query data fr
 
 - Try to use Lambdas in code.
 
+- Google Analystic.
+
 ## More
 The application is simple in back-end aspect. However, I had done some similar apps in the past:
 - <a href="https://github.com/minhlunso1/InstagramPhotoViewer">Instagram</a>. I used RxAndroid and OkHttp to call API. Instagram has updated the API so the source code does not work anymore but you still can look at it and the .gif file :).
