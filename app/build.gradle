@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 25
@@ -44,4 +45,5 @@ dependencies {
     compile 'jp.wasabeef:glide-transformations:2.0.0'
     compile project(':pdk')
     compile 'com.mcxiaoke.volley:library:1.0.+'
+    compile 'com.google.android.gms:play-services-analytics:9.0.0'
 }

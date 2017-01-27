@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "250018752954",
+    "project_id": "photostory-a908a"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:250018752954:android:963d8a0d5ecdfbb1",
+        "android_client_info": {
+          "package_name": "minhna.photostory_pinterest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4TjVxB9jlOIpY8MOAvPpcouRvyO_G1tM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-90980740-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

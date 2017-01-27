@@ -1,6 +1,7 @@
 package minhna.photostory_pinterest.view.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -9,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.google.gson.Gson;
 import com.pinterest.android.pdk.PDKCallback;
 import com.pinterest.android.pdk.PDKClient;
@@ -27,6 +30,7 @@ import minhna.photostory_pinterest.model.BasicProfile;
 import minhna.photostory_pinterest.model.PSMode;
 import minhna.photostory_pinterest.module.AC;
 import minhna.photostory_pinterest.module.AP;
+import minhna.photostory_pinterest.module.ApplicationModule;
 
 /**
  * Created by Administrator on 25-Jan-17.
@@ -38,7 +42,8 @@ public class LoginActivity extends AppCompatActivity {
     ProgressBar progressBar;
     @BindView(R.id.content)
     View content;
-    TimerTask reDisplay;
+    private TimerTask reDisplay;
+    private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
         hideBars();
+        setupGoogleAnalystic();
     }
 
     @Override
@@ -57,6 +63,13 @@ public class LoginActivity extends AppCompatActivity {
             progressBar.setVisibility(View.VISIBLE);
             setTimerRedisplay();
         }
+    }
+
+    private void setupGoogleAnalystic() {
+        ApplicationModule application = (ApplicationModule) getApplication();
+        mTracker = application.getDefaultTracker();
+        mTracker.setScreenName(LoginActivity.class.getSimpleName() + " " + Build.MODEL);
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     private void setTimerRedisplay() {
