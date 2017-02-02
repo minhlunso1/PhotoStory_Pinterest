@@ -1,5 +1,4 @@
 # PhotoStory_Pinterest
-Cookpad Assignment
 
 Submitted by: **Minh Nguyen**
 
@@ -19,8 +18,6 @@ The part of the photo viewer application. Integrating Pinterest to query data fr
 - Mainly focus on UI/UX. I do not use popular component like RecyclerView. I want to expose something weird in UI aspect.
 
 - Process the loading signal of images (including placeholder) - Caching when see big size image.
-
-- I intend to load 10 items per request then load more items. However, I just should complete the assignment in 2 days due to the advice.
 
 - Try to use Lambdas in code.
 

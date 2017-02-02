@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PhotoStory_Pinterest</string>
-    <string name="title">Let me join Cookpad *teehee*</string>
-    <string name="content">Content</string>
+    <string name="title">Made with Android SDK</string>
+    <string name="content">Please pay me as high as you can</string>
     <string name="author_name">Minh Nguyen</string>
     <string name="Start">Begin</string>
     <string name="guide1">To make it quick and convinient, let\'s access Minh\'s gallery. The login authentication is required to fetch API.</string>
