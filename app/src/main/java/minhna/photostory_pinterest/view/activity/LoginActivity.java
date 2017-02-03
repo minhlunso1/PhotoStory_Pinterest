@@ -1,10 +1,12 @@
 package minhna.photostory_pinterest.view.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +33,7 @@ import minhna.photostory_pinterest.model.PSMode;
 import minhna.photostory_pinterest.module.AC;
 import minhna.photostory_pinterest.module.AP;
 import minhna.photostory_pinterest.module.ApplicationModule;
+import minhna.photostory_pinterest.util.PhotoStoryUtil;
 
 /**
  * Created by Administrator on 25-Jan-17.
@@ -116,12 +119,29 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void beginWithAuthorBoard(View view) {
-        AP.saveData(this, AC.PATH_MODE, PSMode.AUTHOR);
-        authenticatePDK();
+        if (PhotoStoryUtil.isPackageExisted(this, AC.PINTEREST_PACKAGE)) {
+            AP.saveData(this, AC.PATH_MODE, PSMode.AUTHOR);
+            authenticatePDK();
+        } else
+            showPinterestInstallDialog();
     }
 
     public void beginWithUserBoard(View view) {
-        AP.saveData(this, AC.PATH_MODE, PSMode.USER);
-        authenticatePDK();
+        if (PhotoStoryUtil.isPackageExisted(this, AC.PINTEREST_PACKAGE)) {
+            AP.saveData(this, AC.PATH_MODE, PSMode.USER);
+            authenticatePDK();
+        } else
+            showPinterestInstallDialog();
+    }
+
+    private void showPinterestInstallDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogStyle);
+        builder.setTitle(R.string.Require_app);
+        builder.setMessage(R.string.Ask_install);
+        builder.setPositiveButton(R.string.Yes, (dialogInterface, i) -> {
+            PhotoStoryUtil.installApp(this, AC.PINTEREST_PACKAGE);
+        });
+        builder.setNegativeButton(R.string.No, null);
+        builder.show();
     }
 }

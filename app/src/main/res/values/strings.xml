@@ -10,4 +10,8 @@
     <string name="intro">I hope you like my work :)</string>
     <string name="img_key">img</string>
     <string name="guide2">Your account has no pin. Please quit the app and select the remain option to fetch data.</string>
+    <string name="Require_app">Require Pinterest</string>
+    <string name="Ask_install">Do you want to install Pinterest?</string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
 </resources>
